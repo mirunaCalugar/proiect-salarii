@@ -226,6 +226,7 @@
             this.Controls.Add(this.CAS);
             this.Controls.Add(this.label5);
             this.Name = "FormModificare";
+            this.Load += new System.EventHandler(this.FormModificare_Load_1);
             ((System.ComponentModel.ISupportInitialize)(this.bindingSource2)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataSet31)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.bindingSource1)).EndInit();

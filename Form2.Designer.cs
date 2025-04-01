@@ -40,6 +40,8 @@
             this.button6 = new System.Windows.Forms.Button();
             this.button4 = new System.Windows.Forms.Button();
             this.SuspendLayout();
+           
+
             // 
             // ajutorButton
             // 

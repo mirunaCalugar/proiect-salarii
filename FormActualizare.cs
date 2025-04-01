@@ -94,8 +94,8 @@ namespace TPBD_proiect
                         da.Fill(dt);
                         if (dt.Rows.Count > 0)
                         {
-                            dataGridView1.DataSource = dt; 
-                            if (dt.Rows.Count == 1) 
+                            dataGridView1.DataSource = dt;
+                            if (dt.Rows.Count == 1)
                             {
                                 DataRow row = dt.Rows[0];
                                 txtNume.Text = row["NUME"].ToString();
@@ -109,7 +109,7 @@ namespace TPBD_proiect
                         else
                         {
                             MessageBox.Show("Angajatul nu a fost găsit!", "Informație", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                            GetEmployees(); 
+                            GetEmployees();
                         }
                     }
                     catch (OracleException ex)
@@ -125,21 +125,38 @@ namespace TPBD_proiect
         {
             string nume = txtNume.Text.Trim();
             string prenume = txtPrenume.Text.Trim();
-            decimal salarBaza = Convert.ToDecimal(txtSalarBaza.Text);
-            decimal spor = Convert.ToDecimal(txtSpor.Text);
-            decimal premii = Convert.ToDecimal(txtPremii.Text);
-            decimal retineri = Convert.ToDecimal(txtRetineri.Text);
+            string salarBazaText = txtSalarBaza.Text.Trim();
+            string sporText = txtSpor.Text.Trim();
+            string premiiText = txtPremii.Text.Trim();
+            string retineriText = txtRetineri.Text.Trim();
 
-
-            if (string.IsNullOrWhiteSpace(nume) || salarBaza < 0 || spor < 0 || premii < 0 || retineri < 0)
+            // Validare numerică
+            if (!IsNumeric(salarBazaText) || !IsNumeric(sporText) || !IsNumeric(premiiText) || !IsNumeric(retineriText))
             {
-                MessageBox.Show("Completează toate câmpurile corect!", "Eroare", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                labelMsg.Text = "Eroare: Introdu doar numere în câmpurile financiare!";
+                labelMsg.ForeColor = Color.Red;
                 return;
             }
 
-            // Actualizare angajat
+            // Conversie la decimal
+            decimal salarBaza = Convert.ToDecimal(salarBazaText);
+            decimal spor = Convert.ToDecimal(sporText);
+            decimal premii = Convert.ToDecimal(premiiText);
+            decimal retineri = Convert.ToDecimal(retineriText);
+
+            // Verificare dacă valorile sunt negative
+            if (salarBaza < 0 || spor < 0 || premii < 0 || retineri < 0)
+            {
+                labelMsg.Text = "Eroare: Valorile nu pot fi negative!";
+                labelMsg.ForeColor = Color.Red;
+                return;
+            }
+
+            // Dacă toate sunt valide, ștergem mesajul și actualizăm
+            labelMsg.Text = "";
             UpdateEmployee(nume, prenume, salarBaza, spor, premii, retineri);
         }
+
 
         private void UpdateEmployee(string nume, string prenume, decimal salarBaza, decimal spor, decimal premii, decimal retineri)
         {
@@ -227,7 +244,7 @@ namespace TPBD_proiect
                             if (rowsAffected > 0)
                             {
                                 MessageBox.Show("Angajat șters cu succes!", "Succes", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                                GetEmployees(); 
+                                GetEmployees();
                             }
                             else
                             {
@@ -253,5 +270,26 @@ namespace TPBD_proiect
             Form2 form1 = new Form2();
             form1.Show();
         }
+        private void ValidareNumar(object sender, KeyPressEventArgs e)
+        {
+            
+            if (!char.IsControl(e.KeyChar) && !char.IsDigit(e.KeyChar) && e.KeyChar != '.')
+            {
+                e.Handled = true; 
+                labelMsg.Text = "Introdu doar cifre și punct pentru zecimale!";
+                labelMsg.ForeColor = Color.Red;
+            }
+            else
+            {
+                labelMsg.Text = ""; 
+            }
+        }
+
+        private bool IsNumeric(string value)
+        {
+            return decimal.TryParse(value, out _);
+        }
+
+
     }
 }

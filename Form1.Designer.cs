@@ -45,15 +45,6 @@
             this.label11 = new System.Windows.Forms.Label();
             this.label12 = new System.Windows.Forms.Label();
             this.dataGridView2 = new System.Windows.Forms.DataGridView();
-            this.dataSet2BindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.dataSet2 = new TPBD_proiect.DataSet2();
-            this.dataSet3BindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.dataSet3 = new TPBD_proiect.DataSet3();
-            this.button4 = new System.Windows.Forms.Button();
-            this.labelError = new System.Windows.Forms.Label();
-            this.labelErr = new System.Windows.Forms.Label();
-            this.aNGAJATIBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.aNGAJATITableAdapter = new TPBD_proiect.DataSet3TableAdapters.ANGAJATITableAdapter();
             this.dataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewTextBoxColumn2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.pRENUMEDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -68,13 +59,22 @@
             this.cASSDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.iMPOZITDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.vIRATCARDDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.aNGAJATIBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.dataSet3BindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.dataSet3 = new TPBD_proiect.DataSet3();
+            this.dataSet2BindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.dataSet2 = new TPBD_proiect.DataSet2();
+            this.button4 = new System.Windows.Forms.Button();
+            this.labelError = new System.Windows.Forms.Label();
+            this.labelErr = new System.Windows.Forms.Label();
+            this.aNGAJATITableAdapter = new TPBD_proiect.DataSet3TableAdapters.ANGAJATITableAdapter();
             this.btnInapoi = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView2)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dataSet2BindingSource)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dataSet2)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.aNGAJATIBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataSet3BindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataSet3)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.aNGAJATIBindingSource)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dataSet2BindingSource)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dataSet2)).BeginInit();
             this.SuspendLayout();
             // 
             // textBox4
@@ -111,6 +111,7 @@
             this.textBox8.Name = "textBox8";
             this.textBox8.Size = new System.Drawing.Size(100, 22);
             this.textBox8.TabIndex = 4;
+          //  this.textBox8.TextChanged += new System.EventHandler(this.textBox8_TextChanged);
             // 
             // textBox9
             // 
@@ -225,64 +226,6 @@
             this.dataGridView2.Size = new System.Drawing.Size(696, 307);
             this.dataGridView2.TabIndex = 15;
             // 
-            // dataSet2BindingSource
-            // 
-            this.dataSet2BindingSource.DataSource = this.dataSet2;
-            this.dataSet2BindingSource.Position = 0;
-            // 
-            // dataSet2
-            // 
-            this.dataSet2.DataSetName = "DataSet2";
-            this.dataSet2.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
-            // 
-            // dataSet3BindingSource
-            // 
-            this.dataSet3BindingSource.DataSource = this.dataSet3;
-            this.dataSet3BindingSource.Position = 0;
-            // 
-            // dataSet3
-            // 
-            this.dataSet3.DataSetName = "DataSet3";
-            this.dataSet3.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
-            // 
-            // button4
-            // 
-            this.button4.Location = new System.Drawing.Point(390, 15);
-            this.button4.Name = "button4";
-            this.button4.Size = new System.Drawing.Size(75, 23);
-            this.button4.TabIndex = 16;
-            this.button4.Text = "Incarca";
-            this.button4.UseVisualStyleBackColor = true;
-            this.button4.Click += new System.EventHandler(this.button4_Click);
-            // 
-            // labelError
-            // 
-            this.labelError.AutoEllipsis = true;
-            this.labelError.AutoSize = true;
-            this.labelError.Location = new System.Drawing.Point(31, 37);
-            this.labelError.Name = "labelError";
-            this.labelError.Size = new System.Drawing.Size(0, 16);
-            this.labelError.TabIndex = 17;
-            // 
-            // labelErr
-            // 
-            this.labelErr.AutoSize = true;
-            this.labelErr.BackColor = System.Drawing.SystemColors.ActiveCaption;
-            this.labelErr.Location = new System.Drawing.Point(24, 274);
-            this.labelErr.Name = "labelErr";
-            this.labelErr.Size = new System.Drawing.Size(7, 16);
-            this.labelErr.TabIndex = 18;
-            this.labelErr.Text = "\r\n";
-            // 
-            // aNGAJATIBindingSource
-            // 
-            this.aNGAJATIBindingSource.DataMember = "ANGAJATI";
-            this.aNGAJATIBindingSource.DataSource = this.dataSet3BindingSource;
-            // 
-            // aNGAJATITableAdapter
-            // 
-            this.aNGAJATITableAdapter.ClearBeforeFill = true;
-            // 
             // dataGridViewTextBoxColumn1
             // 
             this.dataGridViewTextBoxColumn1.DataPropertyName = "ID";
@@ -395,6 +338,64 @@
             this.vIRATCARDDataGridViewTextBoxColumn.Name = "vIRATCARDDataGridViewTextBoxColumn";
             this.vIRATCARDDataGridViewTextBoxColumn.Width = 125;
             // 
+            // aNGAJATIBindingSource
+            // 
+            this.aNGAJATIBindingSource.DataMember = "ANGAJATI";
+            this.aNGAJATIBindingSource.DataSource = this.dataSet3BindingSource;
+            // 
+            // dataSet3BindingSource
+            // 
+            this.dataSet3BindingSource.DataSource = this.dataSet3;
+            this.dataSet3BindingSource.Position = 0;
+            // 
+            // dataSet3
+            // 
+            this.dataSet3.DataSetName = "DataSet3";
+            this.dataSet3.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
+            // 
+            // dataSet2BindingSource
+            // 
+            this.dataSet2BindingSource.DataSource = this.dataSet2;
+            this.dataSet2BindingSource.Position = 0;
+            // 
+            // dataSet2
+            // 
+            this.dataSet2.DataSetName = "DataSet2";
+            this.dataSet2.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
+            // 
+            // button4
+            // 
+            this.button4.Location = new System.Drawing.Point(390, 15);
+            this.button4.Name = "button4";
+            this.button4.Size = new System.Drawing.Size(75, 23);
+            this.button4.TabIndex = 16;
+            this.button4.Text = "Incarca";
+            this.button4.UseVisualStyleBackColor = true;
+            this.button4.Click += new System.EventHandler(this.button4_Click);
+            // 
+            // labelError
+            // 
+            this.labelError.AutoEllipsis = true;
+            this.labelError.AutoSize = true;
+            this.labelError.Location = new System.Drawing.Point(31, 37);
+            this.labelError.Name = "labelError";
+            this.labelError.Size = new System.Drawing.Size(0, 16);
+            this.labelError.TabIndex = 17;
+            // 
+            // labelErr
+            // 
+            this.labelErr.AutoSize = true;
+            this.labelErr.BackColor = System.Drawing.SystemColors.ActiveCaption;
+            this.labelErr.Location = new System.Drawing.Point(24, 274);
+            this.labelErr.Name = "labelErr";
+            this.labelErr.Size = new System.Drawing.Size(7, 16);
+            this.labelErr.TabIndex = 18;
+            this.labelErr.Text = "\r\n";
+            // 
+            // aNGAJATITableAdapter
+            // 
+            this.aNGAJATITableAdapter.ClearBeforeFill = true;
+            // 
             // btnInapoi
             // 
             this.btnInapoi.Location = new System.Drawing.Point(12, 15);
@@ -431,11 +432,11 @@
             this.Name = "Form1";
             this.Load += new System.EventHandler(this.Form1_Load_1);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView2)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dataSet2BindingSource)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dataSet2)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.aNGAJATIBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataSet3BindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataSet3)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.aNGAJATIBindingSource)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dataSet2BindingSource)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dataSet2)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 

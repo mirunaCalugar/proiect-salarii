@@ -19,6 +19,7 @@ namespace TPBD_proiect
         private void Form1_Load(object sender, EventArgs e)
         {
             TestDatabaseConnection();
+            textBox8.Text = "0";
         }
 
         #region Conexiune BD
@@ -137,28 +138,26 @@ namespace TPBD_proiect
                 return;
             }
 
-            try
+            if (!decimal.TryParse(textBox7.Text, out decimal salarBaza) ||
+                !decimal.TryParse(textBox8.Text, out decimal spor) ||
+                !decimal.TryParse(textBox9.Text, out decimal premii) ||
+                !decimal.TryParse(textBox10.Text, out decimal retineri))
             {
-                decimal salarBaza = Convert.ToDecimal(textBox7.Text);
-                decimal spor = Convert.ToDecimal(textBox8.Text);
-                decimal premii = Convert.ToDecimal(textBox9.Text);
-                decimal retineri = Convert.ToDecimal(textBox10.Text);
-
-                if (salarBaza < 0 || spor < 0 || premii < 0 || retineri < 0)
-                {
-                    labelErr.Text = "Valori negative nepermise!";
-                    labelErr.ForeColor = System.Drawing.Color.Red;
-                    return;
-                }
-
-                InsertEmployee(textBox4.Text, textBox5.Text, textBox6.Text, salarBaza, spor, premii, retineri);
-            }
-            catch (FormatException ex)
-            {
-                labelErr.Text = "Date incorecte! " + ex.Message;
+                labelErr.Text = "Introduceți doar valori numerice!";
                 labelErr.ForeColor = System.Drawing.Color.Red;
+                return;
             }
+
+            if (salarBaza < 0 || spor < 0 || premii < 0 || retineri < 0)
+            {
+                labelErr.Text = "Valorile negative nu sunt permise!";
+                labelErr.ForeColor = System.Drawing.Color.Red;
+                return;
+            }
+
+            InsertEmployee(textBox4.Text, textBox5.Text, textBox6.Text, salarBaza, spor, premii, retineri);
         }
+
 
         private void button4_Click(object sender, EventArgs e)
         {
@@ -174,6 +173,20 @@ namespace TPBD_proiect
             this.Load += new System.EventHandler(this.Form1_Load);
            // MessageBox.Show("Form1_Load a fost apelat!", "Debug", MessageBoxButtons.OK, MessageBoxIcon.Information);
             TestDatabaseConnection();
+            textBox8.Text = "0";
+        }
+
+        private void ValidateNumericInput(TextBox textBox)
+        {
+            if (!decimal.TryParse(textBox.Text, out _) && !string.IsNullOrEmpty(textBox.Text))
+            {
+                labelErr.Text = "Introduceți doar cifre!";
+                labelErr.ForeColor = System.Drawing.Color.Red;
+            }
+            else
+            {
+                labelErr.Text = "";
+            }
         }
 
         private void btnInapoi_Click(object sender, EventArgs e)
@@ -182,5 +195,7 @@ namespace TPBD_proiect
             Form2 form1 = new Form2();
             form1.Show();
         }
+
+        
     }
 }

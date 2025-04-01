@@ -47,11 +47,6 @@
             this.txtRetineri = new System.Windows.Forms.TextBox();
             this.button1 = new System.Windows.Forms.Button();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
-            this.dataSet3 = new TPBD_proiect.DataSet3();
-            this.dataSet3BindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.btnSterge = new System.Windows.Forms.Button();
-            this.aNGAJATIBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.aNGAJATITableAdapter = new TPBD_proiect.DataSet3TableAdapters.ANGAJATITableAdapter();
             this.iDDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.nUMEDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.pRENUMEDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -66,13 +61,19 @@
             this.cASSDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.iMPOZITDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.vIRATCARDDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.aNGAJATIBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.dataSet3BindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.dataSet3 = new TPBD_proiect.DataSet3();
+            this.btnSterge = new System.Windows.Forms.Button();
+            this.aNGAJATITableAdapter = new TPBD_proiect.DataSet3TableAdapters.ANGAJATITableAdapter();
             this.btnInapoi = new System.Windows.Forms.Button();
             this.pROCENTAJEBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.pROCENTAJETableAdapter = new TPBD_proiect.DataSet3TableAdapters.PROCENTAJETableAdapter();
+            this.labelMsg = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dataSet3)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dataSet3BindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.aNGAJATIBindingSource)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dataSet3BindingSource)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dataSet3)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pROCENTAJEBindingSource)).BeginInit();
             this.SuspendLayout();
             // 
@@ -246,36 +247,6 @@
             this.dataGridView1.TabIndex = 17;
             this.dataGridView1.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellContentClick);
             // 
-            // dataSet3
-            // 
-            this.dataSet3.DataSetName = "DataSet3";
-            this.dataSet3.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
-            // 
-            // dataSet3BindingSource
-            // 
-            this.dataSet3BindingSource.DataSource = this.dataSet3;
-            this.dataSet3BindingSource.Position = 0;
-            // 
-            // btnSterge
-            // 
-            this.btnSterge.BackColor = System.Drawing.Color.IndianRed;
-            this.btnSterge.Location = new System.Drawing.Point(157, 370);
-            this.btnSterge.Name = "btnSterge";
-            this.btnSterge.Size = new System.Drawing.Size(100, 23);
-            this.btnSterge.TabIndex = 18;
-            this.btnSterge.Text = "Sterge";
-            this.btnSterge.UseVisualStyleBackColor = false;
-            this.btnSterge.Click += new System.EventHandler(this.btnSterge_Click);
-            // 
-            // aNGAJATIBindingSource
-            // 
-            this.aNGAJATIBindingSource.DataMember = "ANGAJATI";
-            this.aNGAJATIBindingSource.DataSource = this.dataSet3BindingSource;
-            // 
-            // aNGAJATITableAdapter
-            // 
-            this.aNGAJATITableAdapter.ClearBeforeFill = true;
-            // 
             // iDDataGridViewTextBoxColumn
             // 
             this.iDDataGridViewTextBoxColumn.DataPropertyName = "ID";
@@ -388,6 +359,36 @@
             this.vIRATCARDDataGridViewTextBoxColumn.Name = "vIRATCARDDataGridViewTextBoxColumn";
             this.vIRATCARDDataGridViewTextBoxColumn.Width = 125;
             // 
+            // aNGAJATIBindingSource
+            // 
+            this.aNGAJATIBindingSource.DataMember = "ANGAJATI";
+            this.aNGAJATIBindingSource.DataSource = this.dataSet3BindingSource;
+            // 
+            // dataSet3BindingSource
+            // 
+            this.dataSet3BindingSource.DataSource = this.dataSet3;
+            this.dataSet3BindingSource.Position = 0;
+            // 
+            // dataSet3
+            // 
+            this.dataSet3.DataSetName = "DataSet3";
+            this.dataSet3.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
+            // 
+            // btnSterge
+            // 
+            this.btnSterge.BackColor = System.Drawing.Color.IndianRed;
+            this.btnSterge.Location = new System.Drawing.Point(157, 370);
+            this.btnSterge.Name = "btnSterge";
+            this.btnSterge.Size = new System.Drawing.Size(100, 23);
+            this.btnSterge.TabIndex = 18;
+            this.btnSterge.Text = "Sterge";
+            this.btnSterge.UseVisualStyleBackColor = false;
+            this.btnSterge.Click += new System.EventHandler(this.btnSterge_Click);
+            // 
+            // aNGAJATITableAdapter
+            // 
+            this.aNGAJATITableAdapter.ClearBeforeFill = true;
+            // 
             // btnInapoi
             // 
             this.btnInapoi.Location = new System.Drawing.Point(12, 12);
@@ -407,11 +408,20 @@
             // 
             this.pROCENTAJETableAdapter.ClearBeforeFill = true;
             // 
+            // labelMsg
+            // 
+            this.labelMsg.AutoSize = true;
+            this.labelMsg.Location = new System.Drawing.Point(43, 426);
+            this.labelMsg.Name = "labelMsg";
+            this.labelMsg.Size = new System.Drawing.Size(0, 16);
+            this.labelMsg.TabIndex = 20;
+            // 
             // FormActualizare
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1183, 678);
+            this.Controls.Add(this.labelMsg);
             this.Controls.Add(this.btnInapoi);
             this.Controls.Add(this.btnSterge);
             this.Controls.Add(this.dataGridView1);
@@ -436,9 +446,9 @@
             this.Text = "FormActualizare";
             this.Load += new System.EventHandler(this.FormActualizare_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dataSet3)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dataSet3BindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.aNGAJATIBindingSource)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dataSet3BindingSource)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dataSet3)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pROCENTAJEBindingSource)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
@@ -487,5 +497,6 @@
         private System.Windows.Forms.Button btnInapoi;
         private System.Windows.Forms.BindingSource pROCENTAJEBindingSource;
         private DataSet3TableAdapters.PROCENTAJETableAdapter pROCENTAJETableAdapter;
+        private System.Windows.Forms.Label labelMsg;
     }
 }
